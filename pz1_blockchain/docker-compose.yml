@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  node1:
+    build: .
+    ports:
+      - "5001:5001"
+    environment:
+      - PORT=5001
+
+  node2:
+    build: .
+    ports:
+      - "5002:5002"
+    environment:
+      - PORT=5002
+      - PEER=http://node1:5001
+
+  node3:
+    build: .
+    ports:
+      - "5003:5003"
+    environment:
+      - PORT=5003
+      - PEER=http://node1:5001
+
+  node4:
+    build: .
+    ports:
+      - "5004:5004"
+    environment:
+      - PORT=5004
+      - PEER=http://node1:5001
+
+  node5:
+    build: .
+    ports:
+      - "5005:5005"
+    environment:
+      - PORT=5005
+      - PEER=http://node1:5001
